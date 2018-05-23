@@ -33,15 +33,23 @@
 				 }
 				
 			 }
-			  $arr_sum[$key]=$sum;
+			  $arr_sum[$values["product_code"]]=$sum;
 				//array_push($sum)
 				$i++;
 				$sum=0;
 		}
+		
+		$result = array_values(array_column( $array , null, 'product_code' ));
+		$result_sum=array_values(array_column( $arr_sum , null, 'product_code' ));
 		$y=0;
-		foreach($unique as $key=>$values){
-			
-			echo $values["product_code"] ."(".$arr_sum[$key].")"; 
+		
+		
+		//echo "<pre>";
+			//print_r(array_unique($result_sum));
+		//echo "</pre>";
+		
+		foreach($result as $key=>$values){
+			echo $values["product_code"]."(".$result_sum[$y].")"; 
 			echo "</br>";
 			$y++;
 		}
